@@ -67,7 +67,7 @@ ax[0].set_xlabel('cons.price.idx ')
 ax[0].set_ylabel('Number of clients')
 
 
-index = st.sidebar.slider('cons_price_idx', 90.00, 100.00, 100.00)
+index = st.sidebar.slider('cons_price_idx', 90, 100, 100)
 for g in data.cons_price_idx: 
     if index==g:
         q=index
