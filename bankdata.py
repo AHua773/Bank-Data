@@ -9,6 +9,15 @@ st.write(data)
 st.markdown('**Number of Instances: 41188** ') 
 st.markdown('**Number of Attributes: 20 + output attribute.**')
 
+fig, ax = plt.subplots(2,1)
+y_count=data.y.value_counts()
+data.y.hist(ax=ax[0],figsize=(6,5))
+plt.title("Is Y Yes and No")
+labels =data['y'].value_counts(sort = True).index
+sizes = data['y'].value_counts(sort = True)
+plt.pie(sizes,labels=labels,autopct='%1.1f%%', shadow=True, startangle=270,)
+plt.title('Yes and No categ',size = 12)
+st.pyplot(fig)
 
 
 job_label= st.sidebar.radio(
