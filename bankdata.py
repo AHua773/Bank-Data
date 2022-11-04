@@ -87,16 +87,18 @@ for c in data.education:
          h=education_label
     else:
         pass
-fig, ax = plt.subplots(2,1)
+fig, ax = plt.subplots()
 data_education_yes = data[data.education == h]
 data_education_yes_group = data_education_yes.groupby('cons_price_idx')
 d3 = data_education_yes_group.y.value_counts()
-d3.plot(ax=ax[0],figsize=(20,10))
-ax[0].set_title('Distribution of cons.price.idx and education') 
-ax[0].set_xlabel('cons.price.idx ')
-ax[0].set_ylabel('Number of clients')
+d3.plot(ax=ax,figsize=(20,10))
+ax.set_title('Distribution of cons.price.idx and education') 
+ax.set_xlabel('cons.price.idx ')
+ax.set_ylabel('Number of clients')
+st.pyplot(fig)
 
 
+fig, ax = plt.subplots()
 index = st.sidebar.slider('cons_price_idx', 90.00, 100.00)
 for g in data.cons_price_idx: 
     if index==g:
@@ -106,15 +108,5 @@ for g in data.cons_price_idx:
 data_cpi_yes= data[data.cons_price_idx == q]
 data_cpi_yes_group = data_cpi_yes.groupby('education')
 d4=data_cpi_yes_group.y.value_counts()
-d4.plot(ax=ax[1],figsize=(20,10))
-
-
-
-
-
-
-
-
-
-
+d4.plot(ax=ax,figsize=(20,10))
 st.pyplot(fig)
