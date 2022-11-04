@@ -1,16 +1,51 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-data= pd.read_csv('bank-additional-full1.csv')
-plt.style.use('seaborn')
-
-st.title('Bank Data')
-
+data= pd.read_csv('bank-additional-full.csv')
+st.title('Bank Marketing Campaigns')
+st.header('Data Analytics')
+st.markdown('**The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to access if the product (bank term deposit) would be (or not) subscribed.**')
 st.write(data)
+st.markdown('**Number of Instances: 41188** ') 
+st.markdown('**Number of Attributes: 20 + output attribute.**')
+
+
 
 job_label= st.sidebar.radio(
      'Select job',
      ('management','services','admin.','blue-collar','entrepreneur','housemaid','retired','self-employed','student','technician','unemployed','unknown'))  
+education_label= st.sidebar.radio(
+     'Select education',
+     ("basic.4y","basic.6y","basic.9y","high.school","illiterate","professional.course","university.degree","unknown"))
+day_of_week_label= st.sidebar.radio(
+     'Select day',
+     ('mon','tue','wed','thu','fri'))
+
+
+
+for k in data.job: 
+    if job_label==k:
+         l=job_label
+    else:
+        pass
+
+
+
+for m in data.day_of_week: 
+    if day_of_week_label==m:
+         n=day_of_week_label
+    else:
+        pass
+
+
+
+for o in data.education: 
+    if education_label==o:
+         p=education_label
+    else:
+        pass
+data_forms=data[data.education==p][data.day_of_week==n][data.job == l]
+st.write(data_forms)
 
 for b in data.job: 
     if job_label==b:
@@ -29,9 +64,6 @@ ax[0].set_ylabel('Number of clients')
 
 
 
-day_of_week_label= st.sidebar.radio(
-     'Select day',
-     ('mon','tue','wed','thu','fri'))
 
 for e in data.day_of_week: 
     if day_of_week_label==e:
@@ -49,9 +81,7 @@ ax[1].set_ylabel('Number of clients')
 st.pyplot(fig)
 
 
-education_label= st.sidebar.radio(
-     'Select education',
-     ("basic.4y","basic.6y","basic.9y","high.school","illiterate","professional.course","university.degree","unknown"))
+
 for c in data.education: 
     if education_label==c:
          h=education_label
@@ -67,7 +97,7 @@ ax[0].set_xlabel('cons.price.idx ')
 ax[0].set_ylabel('Number of clients')
 
 
-index = st.sidebar.slider('cons_price_idx', 90, 100, 100)
+index = st.sidebar.slider('cons_price_idx', 90.00, 100.00)
 for g in data.cons_price_idx: 
     if index==g:
         q=index
@@ -77,6 +107,14 @@ data_cpi_yes= data[data.cons_price_idx == q]
 data_cpi_yes_group = data_cpi_yes.groupby('education')
 d4=data_cpi_yes_group.y.value_counts()
 d4.plot(ax=ax[1],figsize=(20,10))
+
+
+
+
+
+
+
+
 
 
 st.pyplot(fig)
