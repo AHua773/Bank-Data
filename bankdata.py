@@ -75,7 +75,7 @@ st.markdown('**The graph to study the interaction between the various variables*
 st.image(image, caption='dataimage1.png',use_column_width=True)
 st.write('')
 st.write('')
-
+st.markdown('After the above analysis, we can find that the customer is  occupation_and_the day of the week_for_promotion have important influence on whether the customer agrees to deposit_or_not')
 st.markdown('The education level of customers and CPI are the same as them; At the same time, we found that these two groups of variables can influence each other, so we want to know:')
 st.markdown('**The first question is that the number of people who in different occupations will agree to deposit money on different day of a week. And then exchange.**')
 st.markdown('**The second question is that the number of people who will agree or disagree to deposit money in different CPI when they are in different considerably by education. And then exchange.**')
