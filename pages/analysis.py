@@ -25,7 +25,7 @@ st.write('')
 st.write('')
 
 st.markdown('**These graphs are made to conducted a separate analysis of each influencing factor, discussing the impact of its variables on success**')
-fig,ax= plt.subplots(4,1,figsize=(10,40))
+fig,ax= plt.subplots(4,1,figsize=(10,60))
 temp_1 = pd.DataFrame()
 temp_1['No_deposit'] = data[data['y'] == 'no']['job'].value_counts()
 temp_1['Yes_deposit'] = data[data['y'] == 'yes']['job'].value_counts()    
