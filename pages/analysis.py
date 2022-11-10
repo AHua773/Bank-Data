@@ -63,11 +63,11 @@ temp_5.plot.bar(ax=ax[4])
 
 temp_6= pd.DataFrame()
 temp_6['No_deposit'] = data[data['y'] == 'no']['cons_price_idx'].value_counts()
-temp_6['Yes_deposit'] = data[data['y'] == 'yes']['cons_price_idx'].sort_value_counts(by='cons_price_idx',ascending=False,ignore_index=True) 
+temp_6['Yes_deposit'] = data[data['y'] == 'yes']['cons_price_idx'].value_counts() 
  
 ax[5].set_ylabel('Number of clients')
 ax[5].set_title('Distribution of {} and deposit'.format('cons_price_idx'))
-temp_6.plot(ax=ax[5])
+temp_6.plot.bar(ax=ax[5])
 st.pyplot(fig)
 
 from PIL import Image
