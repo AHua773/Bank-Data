@@ -46,10 +46,7 @@ st.pyplot(fig)
 
 
 
-from PIL import Image
-image = Image.open('dataimage1.png')
-st.markdown('**The graph to study the interaction between the various variables**')
-st.image(image, caption='dataimage1.png',use_column_width=True)
+
 st.write('')
 st.write('')
 st.markdown('After the above analysis, we can find that the customer is  occupation_and_the day of the week_for_promotion have important influence on whether the customer agrees to deposit_or_not')

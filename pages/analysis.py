@@ -24,6 +24,13 @@ st.markdown(' we saw that out of **more than 44,000** people,**less than 5,000**
 st.write('')
 st.write('')
 
+
+
+from PIL import Image
+image = Image.open('dataimage1.png')
+st.markdown('**The graph to study the interaction between the various variables**')
+st.image(image, caption='dataimage1.png',use_column_width=True)
+
 st.markdown('**These graphs are made to conducted a separate analysis of each influencing factor, discussing the impact of its variables on success**')
 fig,ax= plt.subplots(4,1,figsize=(10,60))
 temp_1 = pd.DataFrame()
